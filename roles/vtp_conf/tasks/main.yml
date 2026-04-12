@@ -1,0 +1,8 @@
+- name: Configure VTP Domain and Password
+  cisco.ios.ios_config:
+    lines:
+      - vtp domain {{ vtp_domain }}
+      - vtp password {{ vtp_password }}
+      - vtp version {{ vtp_version }}
+      - vtp mode {{ vtp_mode[inventory_hostname] }}
+  notify: Save config

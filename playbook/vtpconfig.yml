@@ -1,0 +1,20 @@
+---
+- name: Configure VTP and VLANs on Distribution Switch
+  hosts: distribution
+  gather_facts: false
+
+  tasks:
+  roles:
+    - vtp_conf
+    - vlan_config
+    - trunk_conf  
+    - svi_config
+
+- name: Configure VTP Client on Access Switch
+  hosts: access
+  gather_facts: false
+
+  roles:
+    - vtp_conf
+    - vlan_config
+    - trunk_conf

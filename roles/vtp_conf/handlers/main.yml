@@ -1,0 +1,5 @@
+---
+# handlers file for roles/vtp_conf
+- name: Save config
+  cisco.ios.ios_config:
+    save_when: always
