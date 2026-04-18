@@ -2,6 +2,10 @@
 vlans:
   - { id: 10, name: users }
   - { id: 20, name: voice }
+  - { id: 30, name: HR }
+  - { id: 100, name: Data }
+
+
 
 vtp_domain:  "mycorp"
 vtp_password: "cisco"
