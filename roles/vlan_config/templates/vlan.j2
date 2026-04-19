@@ -1,0 +1,6 @@
+{% if vtp_mode[inventory_hostname] == "server" %}
+{% for vlan in vlans %}
+vlan {{ vlan.id }}
+ name {{ vlan.name }}
+{% endfor %}
+{% endif %}
