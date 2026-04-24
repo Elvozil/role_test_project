@@ -18,10 +18,13 @@ vtp_mode:
 
 trunks:
   ASW:
-    - { interface: Gig0/1 }
+    names:
+      - { interface: Gig0/1 }
   DSW:
-    - { interface: Gig0/1 }
-    - { interface: Gig0/2 }
+    names:
+      - GigabitEthernet0/1
+      - GigabitEthernet0/2
+
 
 svis:
   - { vlan: 10, ip: 192.168.10.1 255.255.255.0 }
