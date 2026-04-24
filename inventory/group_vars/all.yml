@@ -19,7 +19,8 @@ vtp_mode:
 trunks:
   ASW:
     names:
-      - { interface: Gig0/1 }
+      - GigabitEthernet0/1
+
   DSW:
     names:
       - GigabitEthernet0/1
