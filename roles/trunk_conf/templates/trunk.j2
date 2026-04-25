@@ -1,0 +1,10 @@
+{# roles/trunk_conf/templates/trunk.j2 #}
+
+{% for intf in trunks[inventory_hostname].names %}
+interface {{ intf }}
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport trunk allowed vlan all
+ switchport trunk native vlan 1
+ no shutdown
+{% endfor %}
