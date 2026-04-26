@@ -1,0 +1,8 @@
+{# roles/svi_config/templates/svi.j2 #}
+{# roles/svi_config/templates/svi.j2 #}
+
+{% for svi in svis %}
+interface Vlan{{ svi.vlan }}
+ ip address {{ svi.ip }}
+ no shutdown
+{% endfor %}

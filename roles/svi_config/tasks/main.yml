@@ -1,16 +1,24 @@
 ---
-# tasks file for roles/svi_config
+# roles/svi_config/tasks/main.yml
+
 - name: Enable Layer 3 routing
   ios_config:
     lines:
       - ip routing
   notify: Save config
 
-- name: Configure SVIs with IP
+- name: Ensure generated_configs directory exists
+  file:
+    path: generated_configs
+    state: directory
+    mode: '0755'
+
+- name: Generate SVI config file locally
+  template:
+    src: svi.j2
+    dest: "generated_configs/{{ inventory_hostname }}-svi.cfg"
+
+- name: Configure SVIs
   ios_config:
-    parents: "interface Vlan{{ item.vlan }}"
-    lines:
-      - ip address {{ item.ip }}
-      - no shutdown
-  loop: "{{ svis }}"
+    src: svi.j2
   notify: Save config
